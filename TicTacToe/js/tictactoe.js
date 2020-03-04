@@ -2,7 +2,7 @@
 // Disable the stop button since it is not needed until game start.
 window.onload = function() {this.watch()};
 function watch() {
-    var btn = document.getElementById('BtnStop');
+    var btn = document.getElementById('btnStop');
     btnDisabled(btn); // disable the stop button since the game has not started
 }
 
@@ -20,7 +20,7 @@ function rollForTurn() {
         ranNum = Math.floor(Math.random()*(maximum - minimum) + minimum);
         xArray.push(ranNum);
     }
-    diceroll(); // play dice sounds during the game roll for turn
+    diceRoll(); // play dice sounds during the game roll for turn
     // build the string to show which player rolled what die roll
     for (i=0;i<xArray.length;i++) {
         var result = i + 1;
@@ -28,9 +28,9 @@ function rollForTurn() {
         var pTwo = xArray[1];
         if (pOne == pTwo) { // rigging roll on tie to avoid bug in code. Need to address this later...
             pOne = 1;
-            pTwo = 2
+            pTwo = 2;
         }
-        txt1= txt1 + "Player 1 rolled ["+pOne+"]<br>";
+        txt1 = "Player 1 rolled ["+pOne+"]<br>";
         writeMsg(txt1);
         txt1 = txt1 + "Player 2 rolled ["+pTwo+"]<br><br>";
         setTimeout(function() {writeMsg(txt1);}, 1000); // time delay for dramatic effect
@@ -40,7 +40,7 @@ function rollForTurn() {
         first = "Player 1";
         setTimeout(function() { txt1 = txt1 + "Player 1 wins, please choose a square.";}, 2000);
         setTimeout(function() {writeMsg(txt1);}, 2000);
-    } else if (pOne > pTwo) {
+    } else if (pOne < pTwo) {
         first = "Player 2";
         setTimeout(function() { txt1 = txt1 + "Player 2 wins, please choose a square.";}, 2000);
         setTimeout(function() {writeMsg(txt1);}, 2000);
@@ -61,7 +61,7 @@ function startGame() {
     }
     setTimeout(function() {hideGameMsg();}, 4000);
 
-    //assign proper state of the control buttons
+    // assign proper state of the control buttons
     var btn = document.getElementById('btnStart');
     btnDisabled(btn); // disable the start button since the game is now afoot
     var btn = document.getElementById('btnStop');
@@ -83,7 +83,7 @@ function btnDisabled(btn) {
 
 // this function styles the game buttons while they are disabled
 function stopEnabled(btn) {
-    btn.style.color = "#fff"
+    btn.style.color = "#fff";
     btn.style.border = "2px solid rgb(204, 0, 0)";
     btn.style.backgroundColor = "rgb(255, 51, 51)";
     btn.disabled = false;
@@ -93,7 +93,7 @@ function stopEnabled(btn) {
 function startEnabled(btn) {
     btn.style.color = "#fff";
     btn.style.border = "2px solid rgb(0, 153, 0)";
-    btn.style.backgroundColor = "rgb(57, 230, 0";
+    btn.style.backgroundColor = "rgb(57, 230, 0)";
     btn.disabled = false;
 }
 
@@ -111,7 +111,7 @@ function stopGame() {
     // reset all squares to thier starting empty state.
     var arrayO = document.getElementsByClassName("O");
     var arrayX = document.getElementsByClassName("X");
-    for (var i=O; i<arrayO.length;i++) {
+    for (var i=0; i<arrayO.length;i++) {
         arrayO[i].style.transform = "translateY(-100%)";
     }
     for (var i=0; i<arrayX.length;i++) {
@@ -184,7 +184,7 @@ function determineAvatar() {
 // this function changes active player over to the other player
 function avatarPlaced() {
     var parseText = document.getElementById('gameMsg').innerHTML;
-    var showPlayer = document.getElementById('showplayer'); // select the current element to memory
+    var showPlayer = document.getElementById('showPlayer'); // select the current element to memory
     // check if there is already a winner...if there is , then don't continue the game
     if (parseText == "That's three in a row, Player 1 wins!" || parseText == "That's three in a row, Player 2 wins!") {
         showPlayer.innerHTML = "Game Stopped";
@@ -251,7 +251,7 @@ function checkForWinCon() {
     check4Tie();
 }
 
-// call this funtion to check board state for any ties and act accordingly
+// call this function to check board state for any ties and act accordingly
 function check4Tie() {
     var boardState = document.getElementById('boardState').innerHTML;
     boardState = boardState.substring(1); // remove leading comma
@@ -271,7 +271,7 @@ function winner(winDetected,winCon) {
     if (winDetected == "win") {
         var showme = winDetected;
         var activePlayer = document.getElementById('showPlayer').innerHTML;
-        var txt2 = "That's three in a row, "+activePlayer+"wins!";
+        var txt2 = "That's three in a row, "+activePlayer+" wins!";
         writeMsg(txt2);
         var btn = document.getElementById('btnStart');
         startEnabled(btn); // enable the start button since the game is now stopped
@@ -306,16 +306,16 @@ function glowBoard(pos) {
             setTimeout(function() {bg1.style.backgroundColor = '#d7f3f7';}, 1100);
         } else if (i == index1) {
             var bg2 = squares[i];
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(66, 244, 235';}, 100);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(122, 244, 66';}, 200);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(197, 244, 66';}, 300);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(244, 238, 66';}, 400);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(244, 179, 66';}, 500);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(66, 244, 235';}, 600);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(122, 244, 66';}, 700);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(197, 244, 66';}, 800);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(244, 238, 66';}, 900);
-            setTimeout(function() {bg2.style.backgroundColor = 'rg(244, 179, 66';}, 1000);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(66, 244, 235';}, 100);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(122, 244, 66';}, 200);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(197, 244, 66';}, 300);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 238, 66';}, 400);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 179, 66';}, 500);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(66, 244, 235';}, 600);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(122, 244, 66';}, 700);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(197, 244, 66';}, 800);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 238, 66';}, 900);
+            setTimeout(function() {bg2.style.backgroundColor = 'rgb(244, 179, 66';}, 1000);
             setTimeout(function() {bg2.style.backgroundColor = '#d7f3f7';}, 1100);
         } else if (i == index2) {
             var bg3 = squares[i];
@@ -339,15 +339,15 @@ function glowBoard(pos) {
 function squareSound() {
     var sound = document.getElementById("placeAvatar");
     sound.play();
-    setTimeout(function() {sound.onpause();}, 400); // add delay to these to keep sound short
+    setTimeout(function() {sound.pause();}, 400); // add delay to these to keep sound short
     setTimeout(function() {sound.currentTime = 0;}, 500);
 }
 function tieSound() {
     var sound = document.getElementById("tieGame");
-    var check = document.getElementById('gameMsg').innerHTML
+    var check = document.getElementById('gameMsg').innerHTML;
     setTimeout(function() {sound.play();}, 500);
 }
-function winSound () {
+function winSound() {
     var sound = document.getElementById("winGame");
     setTimeout(function() {sound.play();}, 500);
     setTimeout(function() {sound.pause();}, 2700); // add delay to these to keep sound short
@@ -380,7 +380,7 @@ function blink() {
 // ------------------------------------------------------------------------
 // checking for wincon squares 012
 function checkWinCon1(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon1 = [0,1,2];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -411,7 +411,7 @@ function checkWinCon1(info,squareArray) {
 
 // checking for wincon squares 345
 function checkWinCon2(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon2 = [3,4,5];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -442,7 +442,7 @@ function checkWinCon2(info,squareArray) {
 
 // checking for wincon squares 678
 function checkWinCon3(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon3 = [6,7,8];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -473,7 +473,7 @@ function checkWinCon3(info,squareArray) {
 
 // checking for wincon squares 036
 function checkWinCon4(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon4 = [0,3,6];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -504,7 +504,7 @@ function checkWinCon4(info,squareArray) {
 
 // checking for wincon squares 147
 function checkWinCon5(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon5 = [1,4,7];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -535,7 +535,7 @@ function checkWinCon5(info,squareArray) {
 
 // checking for wincon squares 258
 function checkWinCon6(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon6 = [2,5,8];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -566,7 +566,7 @@ function checkWinCon6(info,squareArray) {
 
 // checking for wincon squares 048
 function checkWinCon7(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon7 = [0,4,8];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -597,7 +597,7 @@ function checkWinCon7(info,squareArray) {
 
 // checking for wincon squares 246
 function checkWinCon8(info,squareArray) {
-    var winDetected = "on"
+    var winDetected = "on";
     var winCon8 = [2,4,6];
     // iterate through the growing array during
     // gametime searching for the existence of
@@ -638,7 +638,7 @@ function square1Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[0]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -661,7 +661,7 @@ function square2Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[1]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -684,7 +684,7 @@ function square3Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[2]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -707,7 +707,7 @@ function square4Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[3]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -730,7 +730,7 @@ function square5Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[4]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -753,7 +753,7 @@ function square6Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[5]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -776,7 +776,7 @@ function square7Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[6]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -799,7 +799,7 @@ function square8Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[7]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -822,7 +822,7 @@ function square9Animate() {
         if (verdict == undefined) { // if verdict is empty then the square is unoccupied.
             var paintAvatar = determineAvatar(); // get the correct avatar to paint for the active player
             var selected = document.getElementsByClassName(paintAvatar)[8]; // paint avatar
-            if (paintAvatar == "0") { // change these all to ternary statements instead
+            if (paintAvatar == "O") { // change these all to ternary statements instead
                 animateO(selected); // call function to animate O
             } else if (paintAvatar == "X") {
                 animateX(selected); // call function to animate X
@@ -839,7 +839,7 @@ function square9Animate() {
 
 // this function will perform the animation for the O avatar.
 function animateO(selected) {
-    selected.style.transform = (selected.style.transform == "translateY(-100%") || null ? "translateY(0)" : "translateY(-100%)";
+    selected.style.transform = (selected.style.transform == "translateY(0%") || null ? "translateY(0)" : "translateY(0%)";
 }
 
 // this function will perform the animation for the X avatar.
