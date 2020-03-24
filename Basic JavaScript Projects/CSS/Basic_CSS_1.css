@@ -4,13 +4,16 @@ img {
     width: 100%;
     height: 50vh;
     object-fit: cover;
+    animation: zoomeffect 10s infinite;
 }
+
 
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
+    animation: zoomeffect 10s infinite;
 }
 
 /* Hide the images by default */
@@ -64,11 +67,13 @@ img {
     padding: 8px 12px;
     position: absolute;
     top: 0;
+    z-index: 1;
 }
 
 /* Dots */
 .dot-container {
     text-align: center;
+    animation: zoomeffect 10s infinite;
 }
 
 .dot {
@@ -102,4 +107,36 @@ img {
 @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+}
+
+/* Image zoom effect */
+@keyframes zoomeffect {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.1,1.1);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+#auto-slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 240px;
+    height: 240px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#auto-slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+    font-size: 200px;
 }

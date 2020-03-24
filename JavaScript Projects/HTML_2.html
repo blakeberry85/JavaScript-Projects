@@ -6,14 +6,25 @@
         <link rel="stylesheet" type="text/css" href="CSS/CSS_1.css">
     </head>
     <body>
-        <form name="contact" onsubmit="formValidation()" method="post">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            document.body.className += 'fade-out';
+            $(function() {
+                $('body').removeClass('fade-out');
+            });
+        </script>
+        <button id="btn-open" onclick="openForm()">Open</button>
+        <form id="contact" name="contact" method="post">
             <p for="first_name">First name</p>
             <input type="text" id="first_name" name="first_name"><br>
             <p for="last_name">Last name</p>
             <input type="text" id="last_name" name="last_name"><br>
             <p for="email">Email</p>
             <input type="text" id="email" name="email">
-            <input type="submit">
+            <p for="phone_number">Phone number</p>
+            <input type="tel" id="phone_number" name="phone_number">
+            <input type="submit" onclick="formValidation()">
+            <button class="btn-cancel">Close</button>
         </form>
         <script src="JavaScript/JavaScript_2.js"></script>
     </body>

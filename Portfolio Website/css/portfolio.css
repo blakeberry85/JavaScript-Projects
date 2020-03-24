@@ -1,0 +1,442 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/*BODY*/
+body {
+    margin: 0%;
+    opacity: 1;
+    transition: 1s opacity;
+    letter-spacing: .2vw;
+    font-family: Avant Garde, Helvetica;
+    font-size: .75vw;
+}
+
+/*BODY FADE*/
+body.fade-out {
+    opacity: .1;
+    transition: none;
+}
+
+/*NAVBAR*/
+.navbar {
+    overflow:hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    -webkit-animation: moveNav 1s;
+    animation: moveNav 1s;
+}
+
+/*NAVBAR TEXT*/
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Avant Garde, Helvetica;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    -webkit-animation: movenavText 1s;
+    animation: movenavText 1s;
+    letter-spacing: .2vw;
+}
+
+/*NAVBAR ANIMATION*/
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+@keyframes movenavText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+
+/*NAVBAR HOVER EFFECT*/
+.navbar a:hover {
+    background-color: #eb934b;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+}
+
+/*NAVBAR HOME BUTTON*/
+.navbar a.active {
+    background-color: rgb(94, 94, 94);
+}
+
+/*VIDEO*/
+#fire {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    z-index: -1;
+    animation: zoominoutsinglefeatured 1s;
+}
+
+/*VIDEO ZOOM ANIMATION*/
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.5,1.5);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+/*TEXT OVER THE VIDEO*/
+.video_text {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    padding: 20px;
+    margin-top: 23%;
+    position: relative;
+    -webkit-animation: movevideoText 1s;
+    animation: movevideoText 1s;
+}
+
+/*VIDEO TEXT ANIMATION*/
+@keyframes movevideoText {
+    from {top: -100vw;}
+    to {top: 0px;}
+}
+
+/*SLIDESHOW STYLE*/
+#slideshow-background {
+    background:#eb934b54;
+}
+
+.slide {
+    display: none;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    tp {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/*SLIDESHOW CONTAINER*/
+#slideshow-container {
+    width: 30vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+/*SLIDESHOW IMAGES*/
+.slideshow-images {
+    vertical-align: middle;
+    height: 20vw;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: auto;
+    object-fit: cover;
+}
+
+/*SLIDESHOW NAVIGATION*/
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.1s ease;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.1s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1vw;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+/*SLIDESHOW TEXT*/
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 7px 7px 7px 7px;
+}
+
+/*SLIDESHOW NUMBER TEXT*/
+.slide-number {
+    color: white;
+    position: absolute;
+    top: 0;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1vw;
+    font-weight: bold;
+    display: none;
+}
+
+/*SLIDESHOW FADE*/
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+/*TABLE*/
+* {
+    box-sizing: border-box;
+}
+
+.column_1 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 3%;
+    height: 400px; /*Adjust according to text within the columns*/
+    background-color: #f2f2f2;
+}
+
+.column_2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 1.9%;
+    height: 400px;
+    background-color: #eb934b;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*HEADING 1 ELEMENTS*/
+h1 {
+    text-transform: uppercase;
+    font-family: "Trebuchet MS", Optima;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.title {
+    color: white;
+}
+
+/*PARAGRAPH ELEMENTS*/
+p {
+    font-family: Helvetica, sans-serif;
+    text-align: justify;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*CENTER ALIGN ELEMENTS*/
+center {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*ANCHOR ELEMENTS*/
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+/*QUOTATION ELEMENTS*/
+q {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*IMAGE ELEMENTS*/
+img {
+    filter: grayscale(100%);
+    border-radius: 8px;
+    max-width: 100%;
+    height: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/*CENTER ALIGN ELEMENT HOVER EFFECT*/
+center:hover {
+    transition: transform .1s;
+    transform: scale(1.05);
+    color: #eb934b;
+}
+
+/*PARAGRAPH ELEMENT HOVER EFFECT*/
+p:hover {
+    color: #eb934b;
+    transition: transform .1s;
+    transform: scale(1.05);
+}
+
+/*HEADING 1 ELEMENT HOVER EFFECT*/
+h1:hover {
+    color: #eb934b;
+    transition: transform .1s;
+    transform: scale(1.05)
+}
+
+/*IMAGE ELEMENT HOVER EFFECTS*/
+img:hover {
+    filter: grayscale(0%);
+    transition: transform .1s;
+    transform: scale(1.05);
+}
+
+/*CONTACT BUTTON*/
+.pop-up-button {
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 15vw;
+    background-color: white;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    -webkit-animation: movePopup 1s;
+    animation: movePopup 1s;
+}
+
+/*CONTACT BUTTON ANIMATION*/
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {bottom: 1.75vw;}
+}
+
+/*POPUP FORM*/
+.form-popup {
+    border: 3px solid #f0f1f0;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+}
+
+/*FORM CONTAINER*/
+.form-container {
+    max-width: 49vw;
+    padding: 9px;
+    background-color: white;
+}
+
+/*INPUT FIELDS*/
+.form-container input[type=text] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-family: Helvetica, Avant Garde;
+    font-size: 1vw;
+}
+
+/*SUBMIT BUTTON*/
+.form-container .btn {
+    background-color: white;
+    color: #eb934b;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+/*CLOSE BUTTON*/
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+/*BUTTON STYLE*/
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1vw 1vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: #eb934b;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    border-style: solid;
+    border-color: black;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    border-style: solid;
+}
+
+label {
+    font-size: 1.5vw;
+}
+/*FOOTER ELEMENT*/
+footer {
+    padding: 2%;
+    background-color: white;
+}

@@ -1,3 +1,13 @@
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
+
 form {
     border: 2px solid black;
     border-radius: 2px;
@@ -5,14 +15,16 @@ form {
     width: 25%;
     box-sizing: border-box;
     background-color: rgb(180, 180, 180);
+    display: none;
 }
 
 p {
     text-align: center;
-    font-size: 20px;
+    font-size: 1vw;
+
 }
 
-input[type=text] {
+input[type=text], input[type=tel] {
     width: 100%;
     border: none;
     border-bottom: 2px solid black;
@@ -26,4 +38,31 @@ input[type=submit] {
     color: white;
     cursor: pointer;
     padding: 15px;
+}
+
+.btn-cancel {
+    width: 100%;
+    margin: 10px auto;
+    background-color: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+}
+
+#btn-open {
+    width: 25%;
+    margin: 10px auto;
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    position: relative;
+    animation: movedown 10s;
+}
+
+@keyframes movedown {
+    from {top: 0px;}
+    to {top: 200px;}
 }

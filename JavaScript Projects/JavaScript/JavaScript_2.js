@@ -14,4 +14,14 @@ function formValidation() {
         alert("Please enter your email address.");
         return false;
     }
+    var a = document.forms["contact"]["phone_number"].value;
+    if (a == "") {
+        alert("Please enter your phone number.");
+        return false;
+    }
+}
+
+function openForm() {
+    document.getElementById("btn-open").style.display = "none";
+    document.getElementById("contact").style.display = "block";
 }
